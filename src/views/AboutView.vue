@@ -111,23 +111,23 @@
   </div>
 </template>
 <script>
-    import {mapState, mapGetters, mapActions, mapMutations} from 'vuex'
-    import allertWarn from '@/components/allertWarn'
-    export default {
-      components: {
-          allertWarn
-      },
-      methods: {
-        backToStepOne (){
-            this.$router.push('/')
-        }
-      }  ,
-      computed:{
-          ...mapState({
-              formData: state => state.formData,
-          }),
-      }
+import { mapState } from 'vuex'
+import allertWarn from '@/components/allertWarn'
+export default {
+  components: {
+    allertWarn
+  },
+  methods: {
+    backToStepOne () {
+      this.$router.push('/')
+    }
+  },
+  computed: {
+    ...mapState({
+      formData: state => state.formData
+    })
   }
+}
 </script>
 <style lang="scss" scoped>
   * {

@@ -241,84 +241,83 @@
 </template>
 
 <script>
-import {mapState, mapGetters, mapActions, mapMutations} from 'vuex'
 import EventRow from '@/components/EventRow'
 import allertWarn from '@/components/allertWarn'
-import MyPhoto from "../components/UI/MyPhotoUp";
+import MyPhoto from '../components/UI/MyPhotoUp'
 export default {
   name: 'HomeView',
   components: {
-      MyPhoto,
-      EventRow,
-      allertWarn
+    MyPhoto,
+    EventRow,
+    allertWarn
   },
   data () {
-      return{
-          formData: {
-              data: {
-                  org: {id: 0, label: 'Организатор', values: ''},
-                  tel:{id: 1, label: 'Телефон',  values: ''},
-                  email:{id: 2, label: 'Email', values: ''},
-                  city:{id: 3, label: 'Город организатора',values: ''},
-                  name:{id: 4, label: 'Название', values: ''},
-                  descr:{id: 5, label: 'Подробное описание',values: ''},
-                  rating: {id: 6, label: 'Рейтинг',values: ''},
-                  adress: {id: 7, label: 'Адрес', values: ''},
+    return {
+      formData: {
+        data: {
+          org: { id: 0, label: 'Организатор', values: '' },
+          tel: { id: 1, label: 'Телефон', values: '' },
+          email: { id: 2, label: 'Email', values: '' },
+          city: { id: 3, label: 'Город организатора', values: '' },
+          name: { id: 4, label: 'Название', values: '' },
+          descr: { id: 5, label: 'Подробное описание', values: '' },
+          rating: { id: 6, label: 'Рейтинг', values: '' },
+          adress: { id: 7, label: 'Адрес', values: '' }
 
-              },
-              events:[
-                  {id: 0, beginDate: '', beginTime:'', endDate: '', endTime: ''},
-              ],
-              url: '',
-          },
-          step: 'Шаг 1',
-      }
+        },
+        events: [
+          { id: 0, beginDate: '', beginTime: '', endDate: '', endTime: '' }
+        ],
+        url: ''
+      },
+      step: 'Шаг 1'
+    }
   },
-    /*validations:{
-    },*/
+  /* validations:{
+    }, */
   methods: {
-      addDate (){
-          let id = this.formData.events.length;
-          let eventArea = {id: id, beginDate: '', beginTime:'', endDate: '', endTime: ''};
-          this.formData.events.push(eventArea)
-      },
-      removeDate (input) {
-          this.formData.events = this.formData.events.filter(p => p.id !== input.id);
-      },
-      nextStep () {
-          if(document.getElementById("form").checkValidity() === true){
-              //Деактивировать для работы со store
-              this.step = 'Шаг 2';
-              //Активировать для работы со store
-              /*this.$store.state.url = this.url;
+    addDate () {
+      const id = this.formData.events.length
+      const eventArea = { id: id, beginDate: '', beginTime: '', endDate: '', endTime: '' }
+      this.formData.events.push(eventArea)
+    },
+    removeDate (input) {
+      this.formData.events = this.formData.events.filter(p => p.id !== input.id)
+    },
+    nextStep () {
+      if (document.getElementById('form').checkValidity() === true) {
+        // Деактивировать для работы со store
+        this.step = 'Шаг 2'
+        // Активировать для работы со store
+        /* this.$store.state.url = this.url;
               this.$store.state.formData = this.formData;
-              this.$router.push('/about');*/
-          }
-      },
-      formReset (){
-          document.getElementById("form").reset();
-          this.formData ={
-              data: [
-                  {id: 0, label: 'Организатор', values: ''},
-                  {id: 1, label: 'Телефон',  values: ''},
-                  {id: 2, label: 'Email', values: ''},
-                  {id: 3, label: 'Город организатора',values: ''},
-                  {id: 4, label: 'Название', values: ''},
-                  {id: 5, label: 'Подробное описание',values: ''},
-                  {id: 6, label: 'Рейтинг',values: ''},
-                  {id: 7, label: 'Адрес', values: ''},
-              ],
-                  events:[
-                  {id: 0, beginDate: '', beginTime:'', endDate: '', endTime: ''},
-              ],
-              url: null
-          };
-      },
-      removePhoto (){
-          this.formData.url = null;
-      },
+              this.$router.push('/about'); */
+      }
+    },
+    formReset () {
+      document.getElementById('form').reset()
+      this.formData = {
+        data: [
+          { id: 0, label: 'Организатор', values: '' },
+          { id: 1, label: 'Телефон', values: '' },
+          { id: 2, label: 'Email', values: '' },
+          { id: 3, label: 'Город организатора', values: '' },
+          { id: 4, label: 'Название', values: '' },
+          { id: 5, label: 'Подробное описание', values: '' },
+          { id: 6, label: 'Рейтинг', values: '' },
+          { id: 7, label: 'Адрес', values: '' }
+        ],
+        events: [
+          { id: 0, beginDate: '', beginTime: '', endDate: '', endTime: '' }
+        ],
+        url: null
+      }
+    },
+    removePhoto () {
+      this.formData.url = null
+    }
 
-  },
+  }
 
 }
 </script>

@@ -3,7 +3,7 @@
         <label :for="input.name" class="label">
             {{input.label}}
         </label>
-     <select class="select" :name="input.name" v-model="modelValue" @change="changeOption" required>
+     <select class="select" :name="input.name" :vlaue="modelValue" @change="changeOption" required>
         <option class="option" disabled value="">0+</option>
         <option
                 v-for="option in options"
@@ -16,46 +16,45 @@
     </div>
 </template>
 <script>
-    import axios from 'axios'
-    export default {
-        name: 'my-select',
-        props:{
-            modelValue: [String,Number],
-            input: {
-                type: Object,
-                required: {
-                    type: Boolean,
-                    default: true
-                },
-            }
-        },
-        data () {
-            return{
-                options: []
-            }
-        },
-        methods: {
-            changeOption (event) {
-                this.$emit('update:modelValue', event.target.value)
-            },
-            async getRating () {
-                try {
-                    //setTimeout ( async ()=>{
-                    // },1000)
-                    const response = await axios.get('http://testwork.rdbx24.ru/api/',{
-                    });
-                    console.log(response.data)
-                    this.options = response.data.result;
-                } catch (e){
-                    alert('Ошибка')
-                } finally {
-                }
-            },
-        },
-        mounted (){
-            this.getRating ();
-        }
+import axios from 'axios'
+export default {
+  name: 'my-select',
+  props: {
+    modelValue: [String, Number],
+    input: {
+      type: Object,
+      required: {
+        type: Boolean,
+        default: true
+      }
     }
+  },
+  data () {
+    return {
+      options: []
+    }
+  },
+  methods: {
+    changeOption (event) {
+      this.$emit('update:modelValue', event.target.value)
+    },
+    async getRating () {
+      try {
+        // setTimeout ( async ()=>{
+        // },1000)
+        const response = await axios.get('http://testwork.rdbx24.ru/api/', {
+        })
+        console.log(response.data)
+        this.options = response.data.result
+      } catch (e) {
+        alert('Ошибка')
+      }
+    }
+  },
+  mounted () {
+    this.getRating()
+  }
+}
 </script>
 <style scoped>
     .input-wrapper{

@@ -42,23 +42,23 @@
 </template>
 <script>
 export default {
-    name: 'event-row',
-    props:{
-        modelValue: [String,Number],
-        input: {
-            type: Object,
-            required: {
-                type: Boolean,
-                default: true
-            },
-        },
-        index: Number
+  name: 'event-row',
+  props: {
+    modelValue: [String, Number],
+    input: {
+      type: Object,
+      required: {
+        type: Boolean,
+        default: true
+      }
     },
-    methods:{
-        updateInput (event) {
-            this.$emit('update:modelValue',event.target.value)
-        },
+    index: Number
+  },
+  methods: {
+    updateInput (event) {
+      this.$emit('update:modelValue', event.target.value)
     }
+  }
 }
 </script>
 <style lang="scss" scoped>

@@ -110,40 +110,40 @@
 </div>
 </template>
 <script>
-    import { maska } from 'maska'
+import { maska } from 'maska'
 export default {
-        name: 'my-input',
-        directives: { maska },
-        props:{
-            modelValue: [String,Number],
-            input: {
-                type: Object,
-                required: {
-                    type: Boolean,
-                    default: true
-                },
-            },
-            label: String,
-            nameInput: String,
-            typeInput: String,
-            minlength:Number,
-            maxlength:Number,
-            pattern: String,
-            placeholder: String,
+  name: 'my-input',
+  directives: { maska },
+  props: {
+    modelValue: [String, Number],
+    input: {
+      type: Object,
+      required: {
+        type: Boolean,
+        default: true
+      }
+    },
+    label: String,
+    nameInput: String,
+    typeInput: String,
+    minlength: Number,
+    maxlength: Number,
+    pattern: String,
+    placeholder: String
 
-        },
-        /*data () {
+  },
+  /* data () {
             return{
                 minlength: 2,
                 maxlength: 1000,
             }
-        },*/
-        methods: {
-            updateInput (event) {
-                this.$emit('update:modelValue',event.target.value)
-            },
-        },
+        }, */
+  methods: {
+    updateInput (event) {
+      this.$emit('update:modelValue', event.target.value)
     }
+  }
+}
 </script>
 <style lang="scss" scoped>
 .input-wrapper{

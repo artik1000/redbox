@@ -31,24 +31,23 @@
     </div>
 </template>
 <script>
-    export default {
-        name: 'my-photo',
-        props:{
-            modelValue: [String,Number],
-            url: String
-        },
-        methods: {
-            onFileChange(e) {
-                const file = e.target.files[0];
-                let url = URL.createObjectURL(file);
-                this.$emit('update:modelValue',url)
-
-            }
-        },
-        computed: {
-
-        }
+export default {
+  name: 'my-photo',
+  props: {
+    modelValue: [String, Number],
+    url: String
+  },
+  methods: {
+    onFileChange (e) {
+      const file = e.target.files[0]
+      const url = URL.createObjectURL(file)
+      this.$emit('update:modelValue', url)
     }
+  },
+  computed: {
+
+  }
+}
 </script>
 <style>
     .input__photo{
